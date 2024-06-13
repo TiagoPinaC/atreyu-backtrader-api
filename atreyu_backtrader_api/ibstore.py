@@ -1234,7 +1234,7 @@ class IBStore(with_metaclass(MetaSingleton, object)):
         self.conn.reqHistoricalData(
             tickerId,
             contract,
-            #bytes(intdate.strftime('%Y%m%d %H:%M:%S') + ' GMT'),
+            #bytes(intdate.strftime('%Y%m%d %H:%M:%S') + ' UTC'),
             bytes(intdate.strftime('%Y%m%d-%H:%M:%S')),
             bytes(duration),
             bytes(barsize),
@@ -1271,7 +1271,7 @@ class IBStore(with_metaclass(MetaSingleton, object)):
         self.conn.reqHistoricalData(
             tickerId,
             contract,
-            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' GMT'),
+            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' UTC'),
             bytes(enddate.strftime('%Y%m%d-%H:%M:%S')),
             bytes(duration),
             bytes(barsize),
@@ -1330,8 +1330,8 @@ class IBStore(with_metaclass(MetaSingleton, object)):
         self.conn.reqHistoricalTicks(
             tickerId,
             contract,
-            # bytes(begindate.strftime('%Y%m%d %H:%M:%S') + ' GMT') if begindate else '',
-            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' GMT') if enddate else '',
+            # bytes(begindate.strftime('%Y%m%d %H:%M:%S') + ' UTC') if begindate else '',
+            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' UTC') if enddate else '',
             bytes(begindate.strftime('%Y%m%d-%H:%M:%S')) if begindate else '',
             bytes(enddate.strftime('%Y%m%d-%H:%M:%S')) if enddate else '',
             100,
@@ -1370,10 +1370,10 @@ class IBStore(with_metaclass(MetaSingleton, object)):
         self.conn.reqHistoricalTicks(
             tickerId,
             contract,
-            # bytes(begindate.strftime('%Y%m%d %H:%M:%S') + ' GMT') if begindate else '',
+            # bytes(begindate.strftime('%Y%m%d %H:%M:%S') + ' UTC') if begindate else '',
             bytes(begindate.strftime('%Y%m%d-%H:%M:%S')) if begindate else '',
-            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' GMT'),
-            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' GMT') if enddate else '',
+            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' UTC'),
+            # bytes(enddate.strftime('%Y%m%d %H:%M:%S') + ' UTC') if enddate else '',
             bytes(enddate.strftime('%Y%m%d-%H:%M:%S')) if enddate else '',
             10,
             bytes(what),
